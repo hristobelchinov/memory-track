@@ -2,7 +2,9 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const User = require('../Schemas/userSchema');
+const Post = require('../Schemas/postSchema');
 const { accessCheckJWT } = require('../middleware/middleware');
+
 
 router.use(accessCheckJWT); 
 

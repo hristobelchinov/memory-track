@@ -23,7 +23,7 @@ main {
   --glass-border: rgba(255, 255, 255, 0.147);
   --blur-amount: 7px;
   --accent-color: #449328e9;
-  --text-color: #000000;
+  --text-color: #ffffff;
 }
 
 /* Three.js Background Container */
@@ -38,7 +38,7 @@ main {
 
 /* Navbar - Glassmorphic */
 nav {
-  background: rgba(255, 255, 255, 0.285); /* semi-transparent dark */
+  background: rgba(0, 0, 0, 0.285); /* semi-transparent dark */
   backdrop-filter: blur(7px);
   border-bottom: 1px solid var(--glass-border);
   padding: 1rem 2rem;
@@ -191,7 +191,7 @@ nav ul li a:hover {
 
 /* Footer - Sticky at Bottom */
 footer {
-  background: #2f611d;
+  background: #124301aa;
   padding: 1rem 2rem;
   text-align: center;
   
@@ -297,3 +297,84 @@ footer h3 {
 }
 
 
+form {
+  max-width: 700px;
+  margin: 3rem auto;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--blur-amount));
+  border-radius: 10px;
+  padding: 2rem;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.2);
+}
+
+form h2 {
+  color: var(--accent-color);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+form label {
+  font-weight: 500;
+  color: var(--text-color);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+form input[type="text"],
+form input[type="date"],
+form input[type="number"],
+form textarea {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-color);
+  box-sizing: border-box;
+  margin-bottom: 1.2rem;
+  transition: border-color 0.2s ease;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: var(--accent-color);
+  outline: none;
+}
+
+form textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+form button[type="submit"] {
+  background-color: rgba(68,147,40,0.8);
+  color: white;
+  font-weight: bold;
+  width: 100%;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+}
+
+form button[type="submit"]:hover {
+  background-color: var(--accent-color);
+}
+
+/* --- Leaflet Map Styling --- */
+#map {
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Leaflet adjustments for glassmorphism */
+.leaflet-container {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(var(--blur-amount));
+  color: black;
+}

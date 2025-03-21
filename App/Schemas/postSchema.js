@@ -1,20 +1,13 @@
 const mongoose = require('mongoose');
-const AutoIncrement = require("mongoose-sequence")(mongoose); // npm i mongoose-sequence
 
 const PostSchema = new mongoose.Schema({
-    id:{
-        type: Number,
-        unique: true,
-    },
-    title:{
-        type:String,
-        required: [true,"Please enter a title"],
-        unique: false
-    },
-    description:{
+    title: {
         type: String,
-        required: [true,"Please enter a description"],
-        unique: false
+        required: [true, "Please enter a title"]
+    },
+    description: {
+        type: String,
+        required: [true, "Please enter a description"]
     },
     location: {
         type: {
@@ -27,34 +20,30 @@ const PostSchema = new mongoose.Schema({
             required: true
         }
     },
-    date:{
+    date: {
         type: Date,
-        required: [true,"Please enter a date"],
+        required: [true, "Please enter a date"],
         default: Date.now
     },
-    participants: [{ // Tagging friends
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: 'User' 
-    }],
-    accessGroups: [{ // Groups which teh user give access to his post
-        type: String
-    }],
+    participants: [
+        { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
+    ],
+    accessGroups: [
+        { type: String }
+    ],
     picture: {
         type: String,
         default: ''
     },
-    createdBy: { // Whose is the post
+    createdBy: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
     }
-},
-
-{ timestamps: true }
-
-);
+}, { timestamps: true });
 
 PostSchema.index({ location: "2dsphere" });
-PostSchema.plugin(AutoIncrement, { inc_field: "id" });
 
-module.exports = mongoose.model('Post', postSchema)
+const Post = mongoose.model('Post', PostSchema);
+
+module.exports = Post

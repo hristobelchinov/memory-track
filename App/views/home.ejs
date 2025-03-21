@@ -7,3 +7,21 @@
   <a href="/auth/signup" class="btn btn-accent">Get Started</a>
 <% } %>
 </div>
+<% if (locals.posts) { %>
+  <div style="background-color: black;">
+    <% for( let i = 0; i < locals.posts.length; i++ ) { %>
+      <div class="post">
+        <h2><%= locals.posts[i].title %></h2>
+        <p><%= locals.posts[i].content %></p>
+        <p><%= locals.posts[i].createdAt %></p>
+        <% if (locals.currentUser && locals.currentUser.id === locals.posts[i].userId) { %>
+          <a href="/post/<%= locals.posts[i].id %>/edit" class="btn btn-accent">Edit</a>
+          <form action="/post/<%= locals.posts[i].id %>?_method=DELETE" method="POST">
+            <button class="btn btn-danger">Delete</button>
+          </form>
+        <% } %>
+      </div>
+  
+    <% } %>
+  </div>
+<% } %>
