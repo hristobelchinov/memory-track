@@ -80,6 +80,10 @@ nav ul li a:hover {
   border-radius: 5px;
 }
 
+nav img{
+  margin-right: 1rem;
+}
+
 /* Glassmorphic Containers for Forms, Cards, Profiles */
 .glass,
 .form-container,
