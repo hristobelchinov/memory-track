@@ -106,4 +106,115 @@ router.delete('/:id', async(req, res) =>{
     } 
 });
 
-module.exports = router;
+
+/////////////////////////////////////////////////////////////////
+
+router.get('/:id/posts', async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      if (isNaN(id)) {
+        res.cookie('message', 'User doesn\'t exist', { maxAge: 6000, httpOnly: true });
+        return res.redirect('/');
+      }
+  
+      if (req.user.id !== id) {
+        res.cookie('message', 'Unauthorized access', { maxAge: 6000, httpOnly: true });
+        return res.redirect('/');
+      }
+  
+      const currentUser = await User.findOne({ id });
+      if (!currentUser) {
+        res.cookie('message', 'Invalid User', { maxAge: 6000, httpOnly: true });
+        return res.redirect('/');
+      }
+  
+      const posts = await Post.find({ createdBy: currentUser._id });
+  
+      res.render('home', { currentUser, posts, message: req.cookies.message || null });
+  
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  });
+  
+  // GET - Render form for creating a new post
+  router.get('/:id/posts/new', async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      if (isNaN(id) || req.user.id !== id) {
+        res.cookie('message', 'Unauthorized access', { maxAge: 6000, httpOnly: true });
+        return res.redirect('/');
+      }
+  
+      const currentUser = await User.findOne({ id });
+      if (!currentUser) {
+        res.cookie('message', 'Invalid User', { maxAge: 6000, httpOnly: true });
+        return res.redirect('/');
+      }
+  
+      res.render('newPost', { currentUser, message: req.cookies.message || null });
+  
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  });
+  
+  // POST - Handle submission of new post
+  router.post('/:id/posts', async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      if (isNaN(id) || req.user.id !== id) {
+        res.cookie('message', 'Unauthorized access', { maxAge: 6000, httpOnly: true });
+        return res.redirect('/');
+      }
+  
+      const currentUser = await User.findOne({ id });
+      if (!currentUser) {
+        res.cookie('message', 'Invalid User', { maxAge: 6000, httpOnly: true });
+        return res.redirect('/');
+      }
+  
+      const {
+        title,
+        description,
+        date,
+        latitude,
+        longitude,
+        participants,
+        accessGroups,
+        picture
+      } = req.body;
+  
+      const participantUsernames = participants?.match(/@\w+/g)?.map(u => u.replace('@', '')) || [];
+      const participantUsers = await User.find({ username: { $in: participantUsernames } });
+      const participantsArray = participantUsers.map(user => user._id);
+  
+      const accessGroupsArray = accessGroups
+        ? accessGroups.split(',').map(group => group.trim())
+        : [];
+  
+      const post = new Post({
+        title: title.trim(),
+        description: description.trim(),
+        date: new Date(date),
+        location: {
+          type: 'Point',
+          coordinates: [parseFloat(longitude), parseFloat(latitude)]
+        },
+        participants: participantsArray,
+        accessGroups: accessGroupsArray,
+        picture: picture || '',
+        createdBy: currentUser._id
+      });
+  
+      await post.save();
+  
+      res.cookie('message', 'Post created successfully', { maxAge: 6000, httpOnly: true });
+      res.redirect(`/user/${id}/posts`);
+  
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  });
+  
+  module.exports = router;

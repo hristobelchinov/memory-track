@@ -7,7 +7,7 @@ function logger(req,res,next){
     next();
 };
 
-// # User can access ONLY HIS User Page
+// # Check user JWT
 const accessCheckJWT = (req, res, next) => {
     const token = req.cookies.jwt;
     if (!token){

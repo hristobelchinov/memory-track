@@ -9,8 +9,9 @@
   <a href="/auth/signup" class="btn btn-accent">Get Started</a>
 <% } %>
 </div>
+
 <% if (locals.posts) { %>
-  <div style="background-color: black;">
+  <div>
     <% for( let i = 0; i < locals.posts.length; i++ ) { %>
       <div class="post">
         <h2><%= locals.posts[i].title %></h2>

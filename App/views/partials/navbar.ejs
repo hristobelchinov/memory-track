@@ -6,6 +6,7 @@
       <li><a href="/about">About</a></li>
     <% if (locals.currentUser) { %>
         <li><a href="/user/<%= currentUser.id %>">Profile</a></li>
+        <li><a href="/user/<%= currentUser.id %>/posts">Posts</a></li>
         <li><a href="/auth/logout">Log Out</a></li>
     <% } else { %> 
         <li><a href="/auth/login">Login</a></li>
