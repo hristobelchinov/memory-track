@@ -70,7 +70,7 @@ function createCircleTexture() {
 const starGeometry = new THREE.BufferGeometry();
 const starCount = 240;
 const starVertices = [];
-const minSeparation = 5; // Minimum separation distance between stars
+const minSeparation = 5;
 
 // Modified star generation: use rejection sampling to ensure stars are not too close.
 for (let i = 0; i < starCount; i++) {
@@ -110,7 +110,7 @@ const starMaterial = new THREE.PointsMaterial({
 const stars = new THREE.Points(starGeometry, starMaterial);
 scene.add(stars);
 
-// === Added for Star Animation ===
+// Added for Star Animation
 // Save a copy of the original star positions and assign a phase/amplitude per star.
 const originalStarPositions = starGeometry.attributes.position.array.slice(0);
 const starPhases = [];
@@ -119,11 +119,8 @@ for (let i = 0; i < starCount; i++) {
   starPhases.push(Math.random() * Math.PI * 2);
   starAmplitudes.push(0.2 + Math.random() * 0.3); // amplitude between 0.2 and 0.5
 }
-// ================================
 
-// -----------------------------------------------------------------
 // Create connections between stars ensuring at least 2 per star
-// -----------------------------------------------------------------
 const thresholdDistance = 10;  // Only connect stars within this distance
 const connectionsForStar = new Array(starCount).fill(0).map(() => []);
 const connectionsList = [];
@@ -205,9 +202,6 @@ const lineMaterial = new THREE.LineBasicMaterial({
 });
 const connections = new THREE.LineSegments(lineGeometry, lineMaterial);
 scene.add(connections);
-// -----------------------------------------------------------------
-// End of star connections
-// -----------------------------------------------------------------
 
 // Lighting for the scene
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.12);
@@ -227,15 +221,12 @@ document.addEventListener('mousemove', (event) => {
 function animate() {
   requestAnimationFrame(animate);
   
-  // Rotate Mars slowly for realism
   mars.rotation.y += 0.002;
   
-  // Subtle camera movement based on mouse
   camera.position.x += (mouseX * 0.8 - camera.position.x) * 0.5;
   camera.position.y += (mouseY * 0.8 - camera.position.y) * 0.5;
   camera.lookAt(scene.position);
   
-  // --- Added Star Animation ---
   const time = Date.now() * 0.001;
   const positions = starGeometry.attributes.position.array;
   for (let i = 0; i < starCount; i++) {
@@ -251,7 +242,6 @@ function animate() {
   }
   starGeometry.attributes.position.needsUpdate = true;
   
-  // Update connection lines to follow animated star positions
   const linePositions = lineGeometry.attributes.position.array;
   for (let k = 0; k < connectionsList.length; k++) {
     const conn = connectionsList[k];
@@ -265,13 +255,11 @@ function animate() {
     linePositions[k * 6 + 5] = positions[j * 3 + 2];
   }
   lineGeometry.attributes.position.needsUpdate = true;
-  // --- End Star Animation ---
   
   renderer.render(scene, camera);
 }
 animate();
 
-// Handle window resize
 window.addEventListener('resize', () => {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
