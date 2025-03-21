@@ -12,6 +12,7 @@ router.get('/:id', async(req, res) =>{
     try {
         // Message managment
         const {message} = req.cookies || null;
+        res.clearCookie('message');
 
         // Manage id param format 
         const id = parseInt(req.params.id);
@@ -42,14 +43,21 @@ router.get('/:id', async(req, res) =>{
 router.patch('/:id', async (req, res) => {
     try {
         const id = parseInt(req.params.id);
-        if (isNaN(id)) return res.status(400).redirect('/?message=User%20doesnt%20exist');
+        if (isNaN(id)) {
+            res.cookie('message', 'User doesnt exist', { maxAge: 6000, httpOnly: true });
+            return res.redirect('/');
+        }
 
         if (req.user.id !== id) {
-            return res.status(403).redirect('/?message=You%20do%20not%20have%20access%20to%20this%20account');
+            res.cookie('message', 'You do not have access to this account', { maxAge: 6000, httpOnly: true });
+            return res.redirect('/');
         }
 
         let currentUser = await User.findOne({ id });
-        if (!currentUser) return res.redirect('/?message=Invalid%20User');
+        if (!currentUser) {
+            res.cookie('message', 'Invalid User', { maxAge: 6000, httpOnly: true });
+            return res.redirect('/');
+        }
 
         const { username, displayName, email } = req.body;
 
@@ -61,7 +69,8 @@ router.patch('/:id', async (req, res) => {
 
         currentUser = await User.findOneAndUpdate({ id }, updateFields, { new: true });
 
-        res.redirect(`/user/${currentUser.id}?message=Update%20Successful`);
+        res.cookie('message', 'User updated successfully', { maxAge: 6000, httpOnly: true });
+        return res.redirect(`/user/${id}`);
     } catch (error) {
         return res.status(500).json({ message: error.message });
     }

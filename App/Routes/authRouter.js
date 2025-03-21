@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const User = require('../Schemas/userSchema'); 
@@ -7,6 +8,15 @@ const { createJWT } = require('../JWT/jwtUtils');
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
+// # Google OAuth Routes
+router.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+
+router.get('/google/callback', 
+  passport.authenticate('google', { failureRedirect: '/auth/login' }),
+  (req, res) => {
+    res.redirect(`/user/${req.user.id}`);
+  }
+);
 
 // # Login Page
 router.get('/login', (req, res) => {

@@ -17,13 +17,14 @@ main {
   flex: 1;
 }
 
-/* Glassmorphism Variables */
+/* Glassmorphism Variodzuiables */
 :root {
-  --glass-bg: rgba(255, 255, 255, 0.066);
-  --glass-border: rgba(255, 255, 255, 0.147);
-  --blur-amount: 7px;
-  --accent-color: #449328e9;
-  --text-color: #ffffff;
+  --glass-bg: rgba(208, 208, 208, 0.8);
+  --glass-border: rgba(108, 108, 108, 0.8);
+  --blur-amount: 10px;
+  --accent-color: #000000e9;
+  --text-color: #000000;
+
 }
 
 /* Three.js Background Container */
@@ -38,10 +39,14 @@ main {
 
 /* Navbar - Glassmorphic */
 nav {
-  background: rgba(0, 0, 0, 0.285); /* semi-transparent dark */
-  backdrop-filter: blur(7px);
+
+  backdrop-filter: blur(10px) saturate(70%);
+  -webkit-backdrop-filter: blur(10px) saturate(70%);
+  background-color: rgba(17, 25, 40, 0.8);
+  background: rgba(255, 255, 255, 0.285); /* semi-transparent dark */
+
   border-bottom: 1px solid var(--glass-border);
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem;
   position: relative;
   z-index: 10;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -78,6 +83,10 @@ nav ul li a:hover {
   border-radius: 5px;
 }
 
+nav img{
+  margin-right: 1rem;
+}
+
 /* Glassmorphic Containers for Forms, Cards, Profiles */
 .glass,
 .form-container,
@@ -103,25 +112,27 @@ nav ul li a:hover {
 /* Hero Section */
 .hero {
   text-align: center;
-  padding: 3rem 1rem;
+  padding: 1rem 1rem;
 }
 
 .hero h1 {
-  font-size: 2.5rem;
+  font-size: 2.6rem;
+  margin-top: 0.8rem;
   margin-bottom: 1rem;
+  font-family: Copperplate;
 }
 
 .hero p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
 }
 
 /* Unified Button Styles for All Buttons */
 .btn,
 .btn-accent {
   display: inline-block;
-  padding: 0.8rem 1.5rem;
-  background: #00000029;
+  padding: 0.6rem 1.3rem;
+  background: #b2afaf6c;
   border: 1px solid var(--accent-color);
   border-radius: 5px;
   color: var(--accent-color);
@@ -134,7 +145,7 @@ nav ul li a:hover {
 .btn:hover,
 .btn-accent:hover {
   background: var(--accent-color);
-  color: var(--text-color);
+  color: white;
 }
 
 /* Form Inputs */
@@ -191,29 +202,32 @@ nav ul li a:hover {
 
 /* Footer - Sticky at Bottom */
 footer {
-  background: #124301aa;
-  padding: 1rem 2rem;
+
+  background: #141614;
+  padding: 0.2rem 2rem;  /* Reduced padding from 0.6rem to 0.3rem */
+
   text-align: center;
-  
   color: white;
   backdrop-filter: blur(10px);
   border-top: 1px solid var(--glass-border);
 }
 
+footer h3 {
+  margin-bottom: 0.9rem;  /* Reduced space for the header */
+}
+
 footer .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
-}
-
-footer h3 {
-  margin-bottom: 1rem;
+  padding: 0 0.1rem;
 }
 
 .footer-links {
   display: flex;
   justify-content: center;
   gap: 2rem;
+  font-size:larger;
+
 }
 
 .footer-links a {
@@ -226,7 +240,7 @@ footer h3 {
 }
 
 .copyright {
-  margin-top: 1rem;
+  margin-top: 1rem;  /* Reduced space for copyright text */
   font-size: 0.9rem;
   opacity: 0.8;
 }
@@ -377,4 +391,5 @@ form button[type="submit"]:hover {
   background: rgba(255,255,255,0.1);
   backdrop-filter: blur(var(--blur-amount));
   color: black;
+
 }
