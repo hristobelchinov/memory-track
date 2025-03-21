@@ -394,3 +394,19 @@ form button[type="submit"]:hover {
   color: black;
 
 }
+
+.about {
+  width: 60%;
+  position:center;
+  margin:auto;
+  margin-top: 4rem;
+  padding: 1rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(7px);
+  border-radius: 10px;
+  border: 1px solid var(--glass-border);
+  color: black;
+  text-align:center;
+  font-size: 1.5rem;
+  margin-bottom:5%;
+}
