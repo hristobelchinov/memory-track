@@ -29,6 +29,7 @@ router.get('/:id', async(req, res) =>{
 
         // Find User & Existence Check
         const currentUser = await User.findOne({id: req.params.id});
+        
         if (!currentUser) {
             res.cookie('message', 'Invalid User', { maxAge: 6000, httpOnly: true });
             return res.redirect('/');
