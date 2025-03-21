@@ -42,8 +42,10 @@ app.use(methodOverride('_method')); // Override method for http patch and delete
 // # Routes - Setup
 const AuthRouter = require('./Routes/authRouter'); // require Authentication Router 
 const UserRouter = require('./Routes/userRouter'); // require User   Account Router 
+// const PostRouter = require('./Routes/postRouter'); // require Post Account Router 
 app.use('/auth', AuthRouter); // use the router
 app.use('/user', UserRouter); // use the router
+// app.use('/user', PostRouter); // use the router
 
 // # MongoDB Connection
 mongoose 
@@ -53,6 +55,7 @@ mongoose
 
 // # Home Page
 app.get('/', async(req, res) => {
+    const {message} = req.cookies || null;
     res.status(200).render('home');
 });
 

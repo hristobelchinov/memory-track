@@ -1,6 +1,7 @@
 <section class="user-profile">
-    <h1><%= currentUser.username %></h1>
-    <p><strong>Email:</strong> <%= currentUser.email %></p>
+    <h1><%= currentUser.displayName %></h1>
+    <p><strong><%= currentUser.displayName %></strong></p>
+    <p><small>Email:</small> <%= currentUser.email %></p>
     <p><strong>Joined:</strong> <%= new Date(currentUser.createdAt).toLocaleDateString() %></p>
     <br>
 
