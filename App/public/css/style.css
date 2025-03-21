@@ -144,8 +144,9 @@ nav img{
 
 .btn:hover,
 .btn-accent:hover {
-  background: var(--accent-color);
-  color: white;
+  background: white;
+  color: black;
+  border: 1px solid black;
 }
 
 /* Form Inputs */
@@ -212,7 +213,7 @@ form textarea {
   width: 100%;
   padding: 0.7rem 1rem;
   border-radius: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.247);
+  border: 1px solid rgba(255, 255, 255, 0.500);
   background-color: rgba(255, 255, 255, 0.071);
   color: var(--text-color);
   box-sizing: border-box;
@@ -245,6 +246,8 @@ form button[type="submit"] {
 
 form button[type="submit"]:hover {
   background-color: var(--accent-color);
+  color: white;
+  border: none;
 }
 
 /* User List on Home Page */
