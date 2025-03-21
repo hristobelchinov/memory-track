@@ -109,21 +109,22 @@ nav ul li a:hover {
 }
 
 .hero h1 {
-  font-size: 3.5rem;
+  font-size: 2.6rem;
+  margin-top: 0.8rem;
   margin-bottom: 1rem;
   font-family: Copperplate;
 }
 
 .hero p {
-  font-size: 2.2rem;
-  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
 }
 
 /* Unified Button Styles for All Buttons */
 .btn,
 .btn-accent {
   display: inline-block;
-  padding: 0.8rem 1.5rem;
+  padding: 0.6rem 1.3rem;
   background: #b2afaf6c;
   border: 1px solid var(--accent-color);
   border-radius: 5px;
