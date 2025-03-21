@@ -72,7 +72,7 @@ nav ul {
 }
 
 nav ul li a {
-  color: var(--accent-color);
+  color: black;
   text-decoration: none;
   padding: 0.5rem 1rem;
   transition: background 0.3s ease;
@@ -241,7 +241,7 @@ form button[type="submit"] {
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  font-size: 1rem;
+  font-size: 1rem; 
 }
 
 form button[type="submit"]:hover {
@@ -535,3 +535,7 @@ footer .container {
 }
 
 
+.user-profile{
+  color:#000000;
+  text-align: center;
+}
