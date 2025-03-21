@@ -10,7 +10,6 @@ const UserSchema = new mongoose.Schema(
         googleId: {
             type: String,
             unique: true,
-            sparse: true
         },
         username: {
             type: String,
@@ -33,7 +32,9 @@ const UserSchema = new mongoose.Schema(
         password: {
             type: String,
             unique: false, 
-            required: [true, "Enter a Password"]
+            required: function() {
+                return !this.googleId; // Password is required only if googleId is not present
+            }
         }
     },
     {timestamps:true}, 
