@@ -21,7 +21,7 @@ renderer.domElement.style.zIndex = '-1';
 
 // Load Mars texture from an online source
 const textureLoader = new THREE.TextureLoader();
-const marsTexture = textureLoader.load('https://t3.ftcdn.net/jpg/03/64/91/04/360_F_364910470_DCjyTv7AlFX0or7TGEcJWkz7JDLnCE5G.jpg', () => {
+const marsTexture = textureLoader.load('/images/upscalemedia-transformed.jpg', () => {
     console.log('Mars texture loaded successfully');
 }, undefined, (err) => {
     console.error('Error loading Mars texture:', err);
