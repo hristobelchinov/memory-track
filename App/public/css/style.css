@@ -234,3 +234,134 @@ footer .container {
   font-size: 0.9rem;
   opacity: 0.8;
 }
+
+
+
+
+
+
+/* TIMELINE */
+
+/* Контейнер за линията на времето */
+
+/* Контейнер за линията на времето и формата */
+.timeline-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+  margin-top: 4%;
+}
+
+/* Контейнер за линията на времето */
+.timeline {
+  width: 35%; /* Линията на времето заема 60% от ширината на екрана */
+  position: relative;
+  border-left: 8px solid #000000; /* Тънка вертикална линия, може да я удебелиш тук */
+  padding-left: 20px; /* Разстояние между линията и точките */
+  margin-top: 1.5%;
+}
+
+
+/* Стил за всеки елемент от линията на времето */
+.timeline-item {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 30px;
+  position: relative;
+  
+}
+
+/* Индикатор за всяко събитие по линията на времето */
+.timeline-marker {
+  position: absolute;
+  left: -10px; /* Позиция на точките от линията */
+  width: 20px;
+  height: 20px;
+  background-color: #000000; /* Черен индикатор */
+  border-radius: 50%;
+  border: 2px solid #fff; /* Бял контур */
+  top: 0;
+}
+/* Стил за съдържанието на спомена */
+.timeline-content {
+  margin-left: 40px; /* Разстояние от маркера */
+  background-color: #363636;
+  border: 2px solid #ccc;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.timeline h3 {
+  margin: 0;
+  color: #bcbcbc;
+  font-size: 18px;
+}
+
+.timeline p {
+  color: #a6a2a2;
+  font-size: 14px;
+}
+
+.timeline img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+/* Формата за добавяне на нов спомен */
+.form-container {
+  width: 30%; /* Формата заема 35% от ширината на екрана */
+  padding: 20px;
+  background-color: #363636;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin-right: 3.5%;
+}
+
+/* Стил за заглавието на формата */
+.form-container h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+/* Стил за формата */
+.form-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Стил за етикетите */
+.form-container label {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Стил за полетата за въвеждане */
+.form-container input,
+.form-container textarea {
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* Стил за бутона */
+.form-container button {
+  background-color: #3a4eb0;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.form-container button:hover {
+  background-color: #45a049;
+}
