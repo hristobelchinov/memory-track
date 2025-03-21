@@ -1,0 +1,51 @@
+<form action="/user/<%= currentUser.id %>/posts" method="POST">
+    <h2>Create New Post</h2>
+
+    <label>Title:</label>
+    <input type="text" name="title" required>
+
+    <label>Description:</label>
+    <textarea name="description" required></textarea>
+
+    <label>Date:</label>
+    <input type="date" name="date" required>
+
+    <label>Location (click on map):</label>
+    <div id="map" style="height: 300px;"></div>
+
+    <!-- for coordinates -->
+    <input type="hidden" name="latitude" id="latitude" required>
+    <input type="hidden" name="longitude" id="longitude" required>
+
+    <label>Participants (use @username, separated by spaces):</label>
+    <input type="text" name="participants">
+
+    <label>Access Groups (comma-separated):</label>
+    <input type="text" name="accessGroups">
+
+    <label>Picture URL:</label>
+    <input type="text" name="picture">
+
+    <button type="submit">Create Post</button>
+</form>
+
+<!-- Leaflet.js CDN -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+    const map = L.map('map').setView([0, 0], 2);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+    let marker;
+
+    map.on('click', function(e) {
+        const {lat, lng} = e.latlng;
+
+        if(marker) marker.setLatLng(e.latlng);
+        else marker = L.marker(e.latlng).addTo(map);
+
+        document.getElementById('latitude').value = lat;
+        document.getElementById('longitude').value = lng;
+    });
+</script>

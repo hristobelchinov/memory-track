@@ -7,6 +7,11 @@ const UserSchema = new mongoose.Schema(
             type: Number,
             unique: true,
         },
+        googleId: {
+            type: String,
+            unique: true,
+            sparse: true
+        },
         username: {
             type: String,
             required: [true,"Please enter a username"],
