@@ -297,13 +297,18 @@ footer .container {
 }
 
 /* Style for the login/signup links */
-.form-container p a {
+.form-container p, a {
   font-size: 14px;
   font-family: Arial, sans-serif;
   color: var(--accent-color);           /* Base blue color */
   text-decoration: none;    /* Remove underline by default */
   font-weight: 500;
   transition: color 0.2s ease;
+}
+#bruh{
+  text-align:center;
+  color:#000000;
+  font-size:35px;
 }
 
 .form-container p a:hover {
@@ -410,3 +415,41 @@ form button[type="submit"]:hover {
   font-size: 1.5rem;
   margin-bottom:5%;
 }
+
+
+@keyframes zoomInSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9); 
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(15px) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1); 
+  }
+}
+
+.about {
+  opacity: 0;
+  animation: zoomInSlideUp 1s ease-out forwards;
+}
+
+.about {
+  animation-delay: 0.1s; 
+}
+
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
