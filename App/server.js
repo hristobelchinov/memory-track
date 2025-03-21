@@ -59,27 +59,19 @@ app.get('/', async (req, res) => {
     const { message } = req.cookies || null;
 
     const token = req.cookies.jwt;
-    if (!token) {
-        res.cookie('message', 'Please log in', { maxAge: 6000, httpOnly: true });
-        return res.status(401).redirect('/auth/login');
-    }
+    
+const decoded = verifyJWT(token);
+    // req.user = decoded;
 
-    const decoded = verifyJWT(token);
-    req.user = decoded;
+    // const id = req.user.id;
 
-    const id = req.user.id;
+    // const { currentUser, posts, error } = await fetchUserAndPosts(id);
 
-    const { currentUser, posts, error } = await fetchUserAndPosts(id);
 
-    if (error) {
-        res.cookie('message', error, { maxAge: 6000, httpOnly: true });
-        return res.redirect('/auth/login');
-    }
+    // // ✅ ADDED: Print posts clearly for debugging
+    // console.log("Fetched posts for user:", posts);
 
-    // ✅ ADDED: Print posts clearly for debugging
-    console.log("Fetched posts for user:", posts);
-
-    res.status(200).render('home', { currentUser, posts, message });
+    res.status(200).render('home'); // { currentUser, posts, message }
 });
 
 
