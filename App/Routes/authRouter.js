@@ -32,10 +32,6 @@ router.get('/google/callback',
 );
 
 
-app.use(session({ secret: 'cats'}));
-app.use(passport.initialize());
-app.use(passport.session());
-
 // # Login Page
 router.get('/login', (req, res) => {
     // Message managment
