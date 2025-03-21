@@ -11,7 +11,7 @@ const User = require('./Schemas/userSchema');
 const {logger, attachUser} = require('./middleware/middleware');
 const { fetchUserAndPosts } = require('./Utils/utils');
 const { verifyJWT } = require('./JWT/jwtUtils');
-require('./passportConfig');
+require('./Utils/passportConfig');
 
 const app = express();
 const PORT = process.env.PORT || 5000;

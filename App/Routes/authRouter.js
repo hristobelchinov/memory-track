@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const User = require('../Schemas/userSchema'); 
 const { createJWT } = require('../JWT/jwtUtils');
-require('../passportConfig');
+require('../Utils/passportConfig');
 const JWT_SECRET = process.env.JWT_SECRET;
 const session = require('express-session');
 const app = express();
