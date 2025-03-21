@@ -5,18 +5,36 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const User = require('../Schemas/userSchema'); 
 const { createJWT } = require('../JWT/jwtUtils');
-
+require('../passportConfig');
 const JWT_SECRET = process.env.JWT_SECRET;
+const session = require('express-session');
+const app = express();
+
 
 // # Google OAuth Routes
 router.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
 router.get('/google/callback', 
-  passport.authenticate('google', { failureRedirect: '/auth/login' }),
+  passport.authenticate('google', { failureRedirect: '/auth/login'}),
   (req, res) => {
+    const { id, username } = req.user;
+    const token = createJWT(id, username);
+
+    // Send Token in a Cookie
+    res.cookie("jwt", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "Strict",
+      maxAge: 7200000, // 2 hour expiration
+    });
     res.redirect(`/user/${req.user.id}`);
   }
 );
+
+
+app.use(session({ secret: 'cats'}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // # Login Page
 router.get('/login', (req, res) => {
