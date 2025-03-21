@@ -27,13 +27,16 @@ router.get('/:id', async(req, res) =>{
             return res.redirect('/');
         }
 
+        
+
         // Find User & Existence Check
         const currentUser = await User.findOne({id: req.params.id});
+        
         if (!currentUser) {
             res.cookie('message', 'Invalid User', { maxAge: 6000, httpOnly: true });
             return res.redirect('/');
         }
-        res.status(200).render('user', { currentUser, message });
+        res.status(200).render('user', { currentUser, message: req.cookies.message || null });
         
     }catch (error) {
         return res.status(500).json({ message: error.message}); // error handling 
