@@ -1,8 +1,8 @@
 <section class="user-profile">
-    <div class="info-text"><h1><%= currentUser.username %></h1><p><small>Email:</small> <%= currentUser.email %></p>
+    <div class="info-text"><h1><strong><%= currentUser.displayName %></strong></h1><p><small>Email:</small> <%= currentUser.email %></p>
+        <small><p>Username:</small> <%= currentUser.username %></p>
+    <p><small>Joined:</small> <%= new Date(currentUser.createdAt).toLocaleDateString() %></p>
         <hr>
-    <p><strong><%= currentUser.displayName %></strong></p>
-    <p><strong>Joined:</strong> <%= new Date(currentUser.createdAt).toLocaleDateString() %></p>
     <br>
     </div>
     <!--# Edit Button Toggle #-->
