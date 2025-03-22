@@ -22,8 +22,7 @@ main {
   --glass-bg: rgba(208, 208, 208, 0.687);
   --glass-border: rgba(108, 108, 108, 0.662);
   --blur-amount: 7px;
-
-  --accent-color: #0d7ac7;
+  --accent-color: #24244d;
   --text-color: #000000;
 
 }
@@ -96,11 +95,11 @@ nav img{
   background: var(--glass-bg);
   backdrop-filter: blur(var(--blur-amount));
   border-radius: 10px;
-  padding: 1rem;
+  padding: 1.5rem;
   border: 1px solid var(--glass-border);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin: 5rem auto;
-  max-width: 700px;
+  max-width: 500px;
 }
 
 /* For home page cards (user list) */
@@ -112,20 +111,29 @@ nav img{
 
 /* Hero Section */
 .hero {
+  width: 590px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.1rem;
+  margin-bottom: 27rem;
+  border-radius: 10px;
   text-align: center;
   padding: 1rem 1rem;
-  margin-bottom: 27rem;
+  border: 1px solid black;
+  background-color: rgba(255, 255, 255, 0.300);
+  backdrop-filter: blur(5px);
 }
 
 .hero h1 {
   font-size: 2.6rem;
-  margin-top: 0.8rem;
-  margin-bottom: 1rem;
+  margin-top: 0.4rem;
+  margin-bottom: 0.8rem;
 }
 
 .hero p {
   font-size: 1.8rem;
-  margin-bottom: 1.5rem;
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
 }
 
 /* Unified Button Styles for All Buttons */
@@ -313,11 +321,11 @@ form button[type="submit"]:hover {
 /* Footer - Sticky at Bottom */
 footer {
 
-  background: #171515f5;
+  background: #141614;
   padding: 0.2rem 2rem;
 
   text-align: center;
-  color: rgba(223, 218, 218, 0.893);
+  color: white;
   backdrop-filter: blur(10px);
   border-top: 1px solid var(--glass-border);
 }
@@ -341,7 +349,7 @@ footer .container {
 }
 
 .footer-links a {
-  color: rgba(223, 218, 218, 0.893);
+  color: white;
   text-decoration: none;
 }
 
@@ -358,17 +366,17 @@ footer .container {
 .about {
   width: 60%;
   margin: auto;
-  margin-top: 4rem;
+  margin-top: 3rem;
   padding: 1rem;
-  background: var(--glass-bg);
-  backdrop-filter: blur(7px);
-  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.600);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
   border: 1px solid var(--glass-border);
   color: black;
   text-align: center;
   font-size: 1.5rem;
   margin-bottom: 5%;
-  animation: zoomInSlideUp 1s ease-out forwards;
+  animation: zoomInSlideUp 0.7s ease-out forwards;
   opacity: 0;
   animation-delay: 0.1s;
 }
@@ -433,10 +441,10 @@ footer .container {
   font-size:35px;
 }
 
-
 .user-profile{
   color:#000000;
 }
+
 .info-text{
 margin-left:7%;
 }
