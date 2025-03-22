@@ -313,11 +313,11 @@ form button[type="submit"]:hover {
 /* Footer - Sticky at Bottom */
 footer {
 
-  background: #141614;
+  background: #ffffffc2;
   padding: 0.2rem 2rem;
 
   text-align: center;
-  color: white;
+  color: rgb(0, 0, 0);
   backdrop-filter: blur(10px);
   border-top: 1px solid var(--glass-border);
 }
