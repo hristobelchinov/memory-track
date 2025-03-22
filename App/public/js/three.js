@@ -7,7 +7,8 @@ camera.position.z = 5;
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.setClearColor(0xe6e6e6, 1); // White background
+renderer.setClearColor(0xedf7ff, 1); // White background
+//#edf7ff
 
 // Append renderer's canvas to the background container
 const bgContainer = document.getElementById('threejs-background');
@@ -101,7 +102,7 @@ starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVerti
 
 // Update star material: size set to 1 and color set to black.
 const starMaterial = new THREE.PointsMaterial({ 
-  color: 0x2f611d, 
+  color: 0x0054a3, 
   size: 1,
   map: createCircleTexture(),
   transparent: true,
