@@ -152,49 +152,75 @@ nav img{
   border: 1px solid black;
 }
 
-/* Glassmorphic Form Container */
-form {
-  background: var(--glass-bg);
-  backdrop-filter: blur(var(--blur-amount));
-  -webkit-backdrop-filter: blur(var(--blur-amount));
-  border-radius: 10px;
-  padding: 2rem;
-  border: 1px solid var(--glass-border);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  max-width: 500px;
-  margin: 3rem auto;
+/* Form Inputs */
+.form-group {
+  margin-bottom: 1.2rem;
 }
 
-/* Form Heading */
-form h2 {
-  color: var(--accent-color);
-  text-align: center;
-  margin-bottom: 1.5rem;
-  font-size: 2rem;
-}
-
-/* Form Labels */
-form label {
+.form-group label {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 500;
   color: var(--text-color);
 }
 
-/* Form Controls */
+.form-control {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 5px;
+  background: rgba(255,255,255,0.1);
+  color: var(--text-color);
+  font-size: 1rem;
+  transition: border 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form-control:focus {
+  border-color: var(--accent-color);
+  outline: none;
+}
+
+/* Style for the login/signup links */
+.form-container p a {
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.form-container p a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+form h2 {
+  color: var(--accent-color);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+form label {
+  font-weight: 500;
+  color: var(--text-color);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
 form input[type="text"],
 form input[type="date"],
 form input[type="number"],
 form textarea {
   width: 100%;
-  padding: 0.8rem;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 5px;
-  background: rgba(255, 255, 255, 0.1);
+  padding: 0.7rem 1rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.500);
+  background-color: rgba(255, 255, 255, 0.071);
   color: var(--text-color);
   box-sizing: border-box;
-  margin-bottom: 1rem;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.2s ease;
 }
 
 form input:focus,
@@ -203,30 +229,140 @@ form textarea:focus {
   outline: none;
 }
 
-/* Map Container */
-#map {
-  border-radius: 8px;
-  border: 1px solid var(--glass-border);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  margin-bottom: 1rem;
+form textarea {
+  resize: vertical;
+  height: 100px;
 }
 
-/* Submit Button */
 form button[type="submit"] {
-  width: 100%;
-  padding: 0.9rem;
-  background-color: var(--accent-color);
+  background-color: #2C601A ;
   color: white;
   font-weight: bold;
+  width: 100%;
+  padding: 0.9rem;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  font-size: 1rem; 
+  font-size: 1rem;
 }
 
 form button[type="submit"]:hover {
-  background-color: #2C601A;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+}
+
+/* User List on Home Page */
+.user-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  width: 90%;
+  margin: 2rem auto;
+}
+
+.user-item {
+  background: rgba(18, 0, 0, 0.045);
+  backdrop-filter: blur(var(--blur-amount));
+  border-radius: 10px;
+  padding: 1.5rem;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.user-item:hover {
+  transform: translateY(-10px);
+}
+
+.error-message {
+  position: fixed;
+  top: 10px; 
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0.147);
+  color: var(--accent-color);
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  animation: fadeInOut 4s ease-in-out forwards;
+}
+
+.error-message::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  animation: shrinkBar 4s linear forwards;
+}
+
+/* Leaflet adjustments for glassmorphism */
+.leaflet-container {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(var(--blur-amount));
+  color: black;
+}
+
+/* Footer - Sticky at Bottom */
+footer {
+
+  background: #141614;
+  padding: 0.2rem 2rem;
+
+  text-align: center;
+  color: white;
+  backdrop-filter: blur(10px);
+  border-top: 1px solid var(--glass-border);
+}
+
+footer h3 {
+  margin-bottom: 0.9rem;
+}
+
+footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 0.1rem;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  font-size:larger;
+
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.copyright {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Leaflet Map Styling */
+#map {
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 @keyframes fadeInOut {
@@ -404,5 +540,7 @@ form button[type="submit"]:hover {
 
 .user-profile{
   color:#000000;
-  text-align: center;
+}
+.info-text{
+margin-left:7%;
 }
