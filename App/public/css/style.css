@@ -149,6 +149,7 @@ nav img{
   transition: background 0.3s ease, color 0.3s ease;
   text-decoration: none;
   text-align: center;
+  align-items: center;
 }
 
 .btn:hover,
