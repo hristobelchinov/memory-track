@@ -22,7 +22,7 @@ main {
   --glass-bg: rgba(208, 208, 208, 0.687);
   --glass-border: rgba(108, 108, 108, 0.662);
   --blur-amount: 7px;
-  --accent-color: #3C8023;
+  --accent-color: #24244d;
   --text-color: #000000;
 
 }
@@ -120,9 +120,6 @@ nav img{
   font-size: 2.6rem;
   margin-top: 0.8rem;
   margin-bottom: 1rem;
-  font-family: "Boldonse", system-ui;
-  font-weight: 400;
-  font-style: normal;
 }
 
 .hero p {
@@ -136,9 +133,9 @@ nav img{
   display: inline-block;
   padding: 0.6rem 1.3rem;
   background: #c9c9c96c;
-  border: 1px solid var(--accent-color);
+  border: 1px solid black;
   border-radius: 5px;
-  color: var(--accent-color);
+  color: black;
   cursor: pointer;
   transition: background 0.3s ease, color 0.3s ease;
   text-decoration: none;
@@ -185,7 +182,7 @@ nav img{
 .form-container p a {
   font-size: 14px;
   font-family: Arial, sans-serif;
-  color: var(--accent-color);
+  color: black;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s ease;
@@ -235,7 +232,7 @@ form textarea {
 }
 
 form button[type="submit"] {
-  background-color: #2C601A ;
+  background-color: #424288 ;
   color: white;
   font-weight: bold;
   width: 100%;
@@ -357,134 +354,6 @@ footer .container {
   opacity: 0.8;
 }
 
-/* Leaflet Map Styling */
-#map {
-  border-radius: 8px;
-  margin-bottom: 1rem;
-  border: 1px solid var(--glass-border);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-@keyframes fadeInOut {
-  0% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
-  10% { opacity: 1; transform: translateX(-50%) translateY(0); }
-  90% { opacity: 1; }
-  100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
-}
-
-@keyframes shrinkBar {
-  from { width: 100%; }
-  to { width: 0; }
-}
-
-
-@media (max-width: 768px) {
-  nav .container {
-    flex-direction: column;
-    gap: 1rem;
-    
-  }
-
-  .form-container p, a {
-    font-size: 14px;
-    font-family: Arial, sans-serif;
-    color: black;         
-    text-decoration: none;    /* Remove underline by default */
-    font-weight: 500;
-    transition: color 0.2s ease;
-  }
-
-  .form-container p a:hover {
-    color: #8d5353;           /* Darker blue on hover */
-    text-decoration: underline;
-  }
-  
-  
-  form {
-    max-width: 700px;
-    margin: 3rem auto;
-    background: var(--glass-bg);
-    backdrop-filter: blur(var(--blur-amount));
-    border-radius: 10px;
-    padding: 2rem;
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 6px 10px rgba(0,0,0,0.2);
-  }
-  
-  form h2 {
-    color: var(--accent-color);
-    text-align: center;
-    margin-bottom: 1.5rem;
-  }
-  
-  form label {
-    font-weight: 500;
-    color: var(--text-color);
-    display: block;
-    margin-bottom: 0.5rem;
-  }
-  
-  form input[type="text"],
-  form input[type="date"],
-  form input[type="number"],
-  form textarea {
-    width: 100%;
-    padding: 0.7rem 1rem;
-    border-radius: 6px;
-    border: 1px solid rgba(255, 255, 255, 0.247);
-    background-color: rgba(255, 255, 255, 0.071);
-    color: var(--text-color);
-    box-sizing: border-box;
-    margin-bottom: 1.2rem;
-    transition: border-color 0.2s ease;
-  }
-  
-  form input:focus,
-  form textarea:focus {
-    border-color: var(--accent-color);
-    outline: none;
-  }
-  
-  form textarea {
-    resize: vertical;
-    height: 100px;
-  }
-  
-  form button[type="submit"] {
-    background-color: rgba(68,147,40,0.8);
-    color: white;
-    font-weight: bold;
-    width: 100%;
-    padding: 0.9rem;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 1rem;
-  }
-  
-  form button[type="submit"]:hover {
-    background-color: var(--accent-color);
-  }
-  
-  /* --- Leaflet Map Styling --- */
-  #map {
-    border-radius: 8px;
-    margin-bottom: 1rem;
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  }
-  
-  /* Leaflet adjustments for glassmorphism */
-  .leaflet-container {
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(var(--blur-amount));
-    color: black;
-  
-  }
-  
-}
-
 .about {
   width: 60%;
   margin: auto;
@@ -501,6 +370,32 @@ footer .container {
   animation: zoomInSlideUp 1s ease-out forwards;
   opacity: 0;
   animation-delay: 0.1s;
+}
+
+/* Leaflet Map Styling */
+#map {
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+#bruh{
+  text-align:center;
+  color:#000000;
+  font-size:35px;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+  10% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  90% { opacity: 1; }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+}
+
+@keyframes shrinkBar {
+  from { width: 100%; }
+  to { width: 0; }
 }
 
 /* Animation for .about */
@@ -530,11 +425,3 @@ footer .container {
     transform: translateY(0);
   }
 }
-
-#bruh{
-  text-align:center;
-  color:#000000;
-  font-size:35px;
-}
-
-
