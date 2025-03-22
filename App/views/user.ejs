@@ -32,13 +32,15 @@
         </div>
     </form>
 
+    <button class="btn-accent" style="margin-left: 40px; max-width: 80px;">Posts</button>
+    <hr>
     <!--# Delete User #-->
     <form action="/user/<%=currentUser.id%>?_method=DELETE" method="POST">  <!--! Query for overriding !-->
         <!--# Edit Button Toggle #-->
-    <button type="button" id="editBtn" class="btn-accent" style="color: black; border-color: white; max-width: 80px; margin:5px"><b>
+    <button type="button" id="editBtn" class="btn-accent" style="color: black; border-color: white; max-width: 80px; margin:5px;padding: 10px;margin-left: 40px;"><b>
     Edit
     </b></button>
-        <button id="delete" type="submit" class="btn-accent" style="color: white;border-color: white; background-color: rgb(162, 59, 59); max-width: 80px;margin: 5px">Delete</button>
+        <button id="delete" type="submit" class="btn-accent" style="color: white;border-color: white; background-color: rgb(162, 59, 59); max-width: 80px;margin: 5px;padding: 10px;">Delete</button>
     </form>
 
     <script>
