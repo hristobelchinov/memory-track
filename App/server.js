@@ -46,8 +46,10 @@ app.use(attachUser);
 // Routes
 const AuthRouter = require('./Routes/authRouter');
 const UserRouter = require('./Routes/userRouter');
+const ChatRouter = require('./Routes/chatRouter'); 
 app.use('/auth', AuthRouter);
 app.use('/user', UserRouter);
+app.use('/chat', ChatRouter);
 
 // MongoDB connection
 mongoose.connect(process.env.MONGODB_URI)

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const AutoIncrement = require("mongoose-sequence")(mongoose);
 
 const ChatSchema = new mongoose.Schema({
-    id: {
+    chatId: {
         type: Number,
         unique: true,
     },
@@ -16,6 +16,6 @@ const ChatSchema = new mongoose.Schema({
     }],
 }, { timestamps: true });
 
-ChatSchema.plugin(AutoIncrement, { inc_field: "id" });
+ChatSchema.plugin(AutoIncrement, { inc_field: "chatId" });
 
 module.exports = mongoose.model("Chat", ChatSchema);

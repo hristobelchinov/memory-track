@@ -40,7 +40,7 @@ const UserSchema = new mongoose.Schema(
     {timestamps:true}, 
 );
 
-UserSchema.plugin(AutoIncrement, { inc_field: "id" }); // custom id incrementation
+UserSchema.plugin(AutoIncrement, { inc_field: "userid" }); // custom id incrementation
 UserSchema.pre("save", async function (next) {
     if (!this.id) {
         const lastUser = await this.constructor.findOne().sort({ id: -1 }); // Get last user
