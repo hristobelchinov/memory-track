@@ -96,7 +96,7 @@ nav img{
   background: var(--glass-bg);
   backdrop-filter: blur(var(--blur-amount));
   border-radius: 10px;
-  padding: 1.5rem;
+  padding: 1rem;
   border: 1px solid var(--glass-border);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin: 5rem auto;
