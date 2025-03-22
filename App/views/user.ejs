@@ -5,10 +5,7 @@
         <hr>
     <br>
     </div>
-    <!--# Edit Button Toggle #-->
-    <button type="button" id="editBtn" class="btn-accent" style="margin-bottom:15px;margin-top:-10px;margin-left:30px;width:28%; color: black; border-color: white;"><b>
-        Edit
-    </b></button>
+    
     
     <!-- Edit Form -->
     <form action="/user/<%= currentUser.id %>?_method=PATCH" method="POST" id="editForm" style="display:none;">
@@ -34,10 +31,14 @@
             </div>
         </div>
     </form>
-    
+
     <!--# Delete User #-->
     <form action="/user/<%=currentUser.id%>?_method=DELETE" method="POST">  <!--! Query for overriding !-->
-        <button id="delete" type="submit" class="btn" style="margin: 5px;margin-left:5.5%; width:40%; color: white;border-color: white; background-color: rgb(162, 59, 59); ">Delete</button>
+        <!--# Edit Button Toggle #-->
+    <button type="button" id="editBtn" class="btn-accent" style="color: black; border-color: white; max-width: 80px; margin:5px"><b>
+    Edit
+    </b></button>
+        <button id="delete" type="submit" class="btn-accent" style="color: white;border-color: white; background-color: rgb(162, 59, 59); max-width: 80px;margin: 5px">Delete</button>
     </form>
 
     <script>
