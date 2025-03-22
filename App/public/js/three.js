@@ -7,8 +7,8 @@ camera.position.z = 5;
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.setClearColor(0xedf7ff, 1); // White background
-//#edf7ff
+renderer.setClearColor(0xf5faff, 1); // White background
+//#f5faff
 
 // Append renderer's canvas to the background container
 const bgContainer = document.getElementById('threejs-background');
