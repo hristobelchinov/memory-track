@@ -32,22 +32,24 @@
         </div>
     </form>
 
-    <button class="btn-accent" style="margin-left: 40px; max-width: 80px;">Posts</button>
-    <hr>
+    <button class="btn-accent" style="margin-left: 35px; width: 70px; height: 40; font-family: Calibri;">Posts</button>
+        <hr style="margin-left: 35px;">
     <!--# Delete User #-->
     <form action="/user/<%=currentUser.id%>?_method=DELETE" method="POST">  <!--! Query for overriding !-->
         <!--# Edit Button Toggle #-->
-    <button type="button" id="editBtn" class="btn-accent" style="color: black; border-color: white; max-width: 80px; margin:5px;padding: 10px;margin-left: 40px;"><b>
+    <button type="button" id="editBtn" class="btn-accent" style="width: 70px; height: 40px; padding: 10px; margin-left: 35px; font-family: Calibri;"><b>
     Edit
     </b></button>
-        <button id="delete" type="submit" class="btn-accent" style="color: white;border-color: white; background-color: rgb(162, 59, 59); max-width: 80px;margin: 5px;padding: 10px;">Delete</button>
+    <button id="delete" type="submit" class="btn-accent" style="background-color: #c9c9c96c; color: rgb(158, 47, 47); border: 1px solid black; width: 70px; height: 40px; padding: 10px; font-family: Calibri;"><b>
+        Delete
+    </b></button>
     </form>
 
     <script>
         const editBtn = document.getElementById('editBtn');
         const closeBtn = document.getElementById('closeBtn');
         const editForm = document.getElementById('editForm');
-        const delBtn = document.getElementById('delete');
+        const delBtn = document.getElementById('delete');   
 
         editBtn.addEventListener('click', () => {
             editForm.style.display = 'block';
@@ -62,5 +64,3 @@
         });
     </script>
 </section>
-
-

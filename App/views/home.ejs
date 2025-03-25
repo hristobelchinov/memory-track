@@ -4,7 +4,7 @@
   <p style="color: #000000e9;">A simple application to manage and keep memories</p>
   </div>
   <% if (locals.currentUser) { %>
-    <a href="/user/<%= currentUser.id %>" class="btn btn-accent"> Profile</a>
+    <a href="/user/<%= currentUser.id %>" class="btn btn-accent">Profile</a>
 <% } else { %> 
   <a href="/auth/signup" style="color:black;"class="btn btn-accent">Get Started</a>
 <% } %>
