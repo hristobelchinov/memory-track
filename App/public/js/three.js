@@ -69,7 +69,7 @@ function createCircleTexture() {
 }
 
 const starGeometry = new THREE.BufferGeometry();
-const starCount = 240;
+const starCount = 230;
 const starVertices = [];
 const minSeparation = 5;
 

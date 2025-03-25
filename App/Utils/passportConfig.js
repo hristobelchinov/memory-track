@@ -26,8 +26,8 @@ passport.use(new GoogleStrategy({
   }
 ));
 
-passport.serializeUser((user, done) => {
-  done(null, user.id);
+passport.serializeUser(async(user, done) => {
+ await done(null, user.id);
 });
 
 passport.deserializeUser(async (id, done) => {

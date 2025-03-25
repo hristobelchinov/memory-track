@@ -16,12 +16,12 @@ router.get('/google', passport.authenticate('google', { scope: ['profile', 'emai
 
 router.get('/google/callback', 
   passport.authenticate('google', { failureRedirect: '/auth/login'}),
-  (req, res) => {
+  async(req, res) => {
     const { id, username } = req.user;
     const token = createJWT(id, username);
 
     // Send Token in a Cookie
-    res.cookie("jwt", token, {
+   await res.cookie("jwt", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "Strict",
